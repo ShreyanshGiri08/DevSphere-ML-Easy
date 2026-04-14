@@ -25,15 +25,21 @@ The ScoreScouter system is contained within a single Google Colab notebook (devs
 When the system was handed over, the following "skill issues" were identified: 
 
 - The Toolbox is Locked: Essential libraries like pandas and sklearn are referenced but never imported.
+- Data Disconnect: The dataset path is missing! You need to assign the correct dataset URL to the right variable.
 - Invisible Data: A NaN value in the dataset causes the model to crash because the cleaning step wasn't implemented permanently.
 - The Mirror World: The model is trying to predict how many hours someone studied based on their score (X and y are swapped).
+- Wrong Verb: The model attempts to `train()` which is not a part of standard scikit-learn vocabulary.
+- Chart Confusion: A simple line plot is used for plotting individual coordinate data mapping points instead of a scatter plot.
 - Visual Hallucinations: The regression line on the graph looks like a scatter plot gone wrong because the prediction logic is feeding the model its own target values.
 
 # Common Bug Types to Look For: 
 
 - Missing Dependencies: Functions being called before their parent libraries are imported.
+- Missing References: Variables referencing a path that has not been defined.
 - Immutability Errors: Calling a cleaning function (like dropna) without saving the result back to the variable.
 - Feature vs. Target Confusion: Misidentifying the independent variable (X) and the dependent variable (y).
+- Non-Standard Methods: Specifying model functions that do not map to the library.
+- Chart API Confusion: Plotting raw points connected linearly vs. correctly using scatter points.
 - Input-Output Mismatch: Passing the wrong variable into the model.predict() function during visualization.
 
 # Your Responsibilities 

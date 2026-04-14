@@ -1,0 +1,10 @@
+.github/workflows/fork-ci.yml
+.github/workflows/pr-checks.yml
+.github/workflows/pr-grader.yml
+.hooks/pre-commit
+tests/run_tests.sh
+tests/checker.py
+samples/in_sample.txt
+samples/out_sample.txt
+README.md
+.readonly-files
